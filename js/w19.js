@@ -4,14 +4,15 @@ const products = [
   { name: "Droid", price: 400, quantity: 7 },
   { name: "Grip", price: 1200, quantity: 9 },
 ];
-console.log(products);
 
-function getProductPrice(productName) {
+function getAllPropValues(propName) {
+  const category = [];
   for (const product of products) {
-    if (product.name === productName) {
-      return product.price;
+    if (product.hasOwnProperty(propName)) {
+      category.push(product.price);
+      console.log(category);
     }
   }
-  return null;
+  return category;
 }
-console.log(getProductPrice(products));
+console.log(getAllPropValues(products));
