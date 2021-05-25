@@ -9,10 +9,20 @@ function getAllPropValues(propName) {
   const category = [];
   for (const product of products) {
     if (product.hasOwnProperty(propName)) {
-      category.push(product.price);
-      console.log(category);
+      category.push(product[propName]);
     }
   }
   return category;
 }
-console.log(getAllPropValues(products));
+/*
+Задача. Коллекция значений свойства
+Задание
+Напиши функцию getAllPropValues(propName) которая принимает один параметр propName - имя (ключ) свойства. Функция должна вернуть массив всех значений свойства с таким именем из каждого объекта в массиве products. Если в объектах нет свойства с таким именем, функция должна вернуть пустой массив.
+
+Тесты
+Объявлена функция getAllPropValues(propName)
+Вызов getAllPropValues("name") возвращает ["Radar", "Scanner", "Droid", "Grip"]
+Вызов getAllPropValues("quantity") возвращает [4, 3, 7, 9]
+Вызов getAllPropValues("price") возвращает [1300, 2700, 400, 1200]
+Вызов getAllPropValues("category") возвращает []
+*/
