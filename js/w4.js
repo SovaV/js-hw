@@ -1,6 +1,7 @@
 const pizzaPalace = {
   pizzas: ["Ультрасыр", "Аль Копчино", "Четыре нарезона"],
   order(pizzaName, onSuccess, onError) {
+<<<<<<< Updated upstream
     for (let pizza of this.pizzas) {
       if (pizza === pizzaName) {
         return onSuccess(pizzaName);
@@ -15,10 +16,30 @@ function makePizza(pizzaName) {
 function onOrderError(error) {
   return `Ошибка! ${error}`;
 }
+=======
+    console.log(pizzaName);
+  },
+};
+// Пиши код выше этой строки
+
+// Колбэк для onSuccess
+function makePizza(pizzaName) {
+  console.log(pizzaName);
+  return `Ваш заказ принят. Готовим пиццу ${pizzaName}.`;
+}
+
+// Колбэк для onError
+function onOrderError(error) {
+  return `Ошибка! ${error}`;
+}
+
+// Вызовы метода с колбэками
+>>>>>>> Stashed changes
 pizzaPalace.order("Аль Копчино", makePizza, onOrderError);
 pizzaPalace.order("Четыре нарезона", makePizza, onOrderError);
 pizzaPalace.order("Биг майк", makePizza, onOrderError);
 pizzaPalace.order("Венская", makePizza, onOrderError);
+<<<<<<< Updated upstream
 
 /*
 Несколько колбэков
@@ -89,3 +110,5 @@ processCall('Поли', takeCall, leaveHoloMessage);
 Вызов pizzaPalace.order('Биг майк', makePizza, onOrderError) возвращает 'Ошибка! В ассортименте нет пиццы с названием Биг майк.'.
 Вызов pizzaPalace.order('Венская', makePizza, onOrderError) возвращает 'Ошибка! В ассортименте нет пиццы с названием Венская.'.
 */
+=======
+>>>>>>> Stashed changes
