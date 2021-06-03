@@ -1,19 +1,11 @@
-// Пиши код ниже этой строки
 const getUsersWithEyeColor = (users, color) => {
-  const newArray = [];
-  const colorBlue = "blue";
-  const colorGreen = "green";
-  users.filter((users) => {
-    if (users.eyeColor === colorBlue) {
-      newArray.push(users.name);
-    }
-    if (users.eyeColor) {
-      newArray.push(users.name);
-    }
-  });
-  console.log(newArray);
-  //return newArray;
+  const allcolor = "";
+  users.filter((user) => user.eyeColor === color);
+  console.log(users);
+  users.map();
+  console.log(allcolor);
 };
+
 getUsersWithEyeColor([
   {
     name: "Moore Hensley",
