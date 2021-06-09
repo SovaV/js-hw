@@ -1,10 +1,12 @@
-const getTotalFriendCount = (users) => {
-  const friends = users.reduce((total, user) => total + user.friends.length, 0);
-  return friends;
+const getTotalBalanceByGender = (users, gender) => {
+  const balance = [...users]
+    .filter((user) => user.gender === gender)
+    .reduce((total, use) => total + use.balance, 0);
+  return balance;
 };
 
 /*
-Задача. Общее количество друзей
+Задача. Общий баланс
 Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
 
 [
@@ -48,7 +50,7 @@ const getTotalFriendCount = (users) => {
     name: 'Carey Barr',
     email: 'careybarr@nurali.com',
     eyeColor: 'blue',
-    friends: ['Jordan Sampson', 'Eddie Strong'],
+    friends: ['Jordan Sampson', 'Eddie Strong', 'Adrian Cross'],
     isActive: true,
     balance: 3951,
     gender: 'male'
@@ -57,7 +59,7 @@ const getTotalFriendCount = (users) => {
     name: 'Blackburn Dotson',
     email: 'blackburndotson@furnigeer.com',
     eyeColor: 'brown',
-    friends: ['Jacklyn Lucas', 'Linda Chapman'],
+    friends: ['Jacklyn Lucas', 'Linda Chapman', 'Adrian Cross', 'Solomon Fokes'],
     isActive: false,
     balance: 1498,
     gender: 'male'
@@ -73,12 +75,14 @@ const getTotalFriendCount = (users) => {
   }
 ]
 Задание
-Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала общее количество друзей (свойство friends) всех пользователей из массива users.
+Дополни функцию getTotalBalanceByGender(users, gender) так, чтобы она возвращала общий баланс пользователей (свойство balance), пол которых (свойство gender) совпадает со значением параметра gender.
 
 Тесты
-Объявлена переменная getTotalFriendCount.
-Переменной getTotalFriendCount присвоена стрелочная функция с параметром (users).
-Для перебора параметра users используется метод reduce().
-Вызов функции с указанным массивом пользователей возвращает число 14
+Объявлена переменная getTotalBalanceByGender.
+Переменной getTotalBalanceByGender присвоена стрелочная функция с параметрами (users, gender).
+В теле функции используется цепочка методов в правильном порядке.
+Значение параметра users не изменяется.
+Если значение параметра gender это строка 'male', функция возвращает число 12053.
+Если значение параметра gender это строка 'female', функция возвращает число 8863.
 Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
 */

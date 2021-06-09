@@ -1,10 +1,14 @@
-const getTotalFriendCount = (users) => {
-  const friends = users.reduce((total, user) => total + user.friends.length, 0);
-  return friends;
+// Пиши код ниже этой строки
+const sortByAscendingBalance = (users) => {
+  const balance = [...users].sort(
+    (firstBalance, secondBalance) =>
+      firstBalance.balance - secondBalance.balance
+  );
+  return balance;
 };
-
+// Пиши код выше этой строки
 /*
-Задача. Общее количество друзей
+Задача. Сортировка по балансу
 Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
 
 [
@@ -73,12 +77,13 @@ const getTotalFriendCount = (users) => {
   }
 ]
 Задание
-Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала общее количество друзей (свойство friends) всех пользователей из массива users.
+Дополни функцию sortByAscendingBalance(users) так, чтобы она возвращала массив пользователей отсортированный по возрастанию их баланса (свойство balance).
 
 Тесты
-Объявлена переменная getTotalFriendCount.
-Переменной getTotalFriendCount присвоена стрелочная функция с параметром (users).
-Для перебора параметра users используется метод reduce().
-Вызов функции с указанным массивом пользователей возвращает число 14
+Объявлена переменная sortByAscendingBalance.
+Переменной sortByAscendingBalance присвоена стрелочная функция с параметром (users).
+Значение параметра users не изменяется.
+Вызов функции с указанным массивом пользователей возвращает новый массив пользователей отсортированный по возрастанию их баланса.
 Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+Для перебора параметра users использован метод sort().
 */

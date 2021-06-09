@@ -1,26 +1,14 @@
-const players = [
-  { name: "Манго", playtime: 1270, gamesPlayed: 4 },
-  { name: "Поли", playtime: 469, gamesPlayed: 2 },
-  { name: "Аякс", playtime: 690, gamesPlayed: 3 },
-  { name: "Киви", playtime: 241, gamesPlayed: 1 },
-];
-//const totalPlaytime = players.reduce((total, player) => {total + player.playtime});
+const players = {
+  mango: 1270,
+  poly: 468,
+  ajax: 710,
+  kiwi: 244,
+};
+const playtimes = Object.values(players); // [1270, 468, 710, 244]
 
-//const totalGamesPlayed = players.reduce((total, player) => {total + player.gamesPlayed});
+const totalPlayTime = playtimes.reduce((total, player) => total + player, 0);
 
-const totalAveragePlaytimePerGame = players.reduce(function (
-  totalPlaytime,
-  totalGamesPlayed,
-  _,
-  { length }
-) {
-  totalPlaytime + totalGamesPlayed / length;
-},
-0);
-
-//average = array.reduce(function (avg, value, _, { length }) {
-//     return avg + value / length;
-// }, 0);
+const averagePlayTime = totalPlayTime / playtimes.length;
 
 /*
 Метод reduce()

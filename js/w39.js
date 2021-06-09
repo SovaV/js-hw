@@ -1,10 +1,12 @@
-const getTotalFriendCount = (users) => {
-  const friends = users.reduce((total, user) => total + user.friends.length, 0);
+const sortByDescendingFriendCount = (users) => {
+  const friends = [...users].sort(
+    (firstFriend, secondFriend) =>
+      secondFriend.friends.length - firstFriend.friends.length
+  );
   return friends;
 };
-
 /*
-Задача. Общее количество друзей
+Задача. Сортировка по количеству друзей
 Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
 
 [
@@ -73,12 +75,13 @@ const getTotalFriendCount = (users) => {
   }
 ]
 Задание
-Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала общее количество друзей (свойство friends) всех пользователей из массива users.
+Дополни функцию sortByDescendingFriendCount(users) так, чтобы она возвращала массив пользователей отсортированный по убыванию количества их друзей (свойство friends).
 
 Тесты
-Объявлена переменная getTotalFriendCount.
-Переменной getTotalFriendCount присвоена стрелочная функция с параметром (users).
-Для перебора параметра users используется метод reduce().
-Вызов функции с указанным массивом пользователей возвращает число 14
+Объявлена переменная sortByDescendingFriendCount.
+Переменной sortByDescendingFriendCount присвоена стрелочная функция с параметром (users).
+Значение параметра users не изменяется.
+Для перебора параметра users использован метод sort().
+Вызов функции с указанным массивом пользователей возвращает новый массив пользователей отсортированный по убыванию количества их друзей.
 Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
 */

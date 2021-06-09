@@ -1,10 +1,16 @@
-const getTotalFriendCount = (users) => {
-  const friends = users.reduce((total, user) => total + user.friends.length, 0);
+const getNamesSortedByFriendCount = (users) => {
+  const friends = [...users]
+    .sort(
+      (firstFriend, secondFriend) =>
+        firstFriend.friends.length - secondFriend.friends.length
+    )
+    .map((users) => users.name);
+
   return friends;
 };
 
 /*
-Задача. Общее количество друзей
+Задача. Пользователи и друзья
 Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
 
 [
@@ -48,7 +54,7 @@ const getTotalFriendCount = (users) => {
     name: 'Carey Barr',
     email: 'careybarr@nurali.com',
     eyeColor: 'blue',
-    friends: ['Jordan Sampson', 'Eddie Strong'],
+    friends: ['Jordan Sampson', 'Eddie Strong', 'Adrian Cross'],
     isActive: true,
     balance: 3951,
     gender: 'male'
@@ -57,7 +63,7 @@ const getTotalFriendCount = (users) => {
     name: 'Blackburn Dotson',
     email: 'blackburndotson@furnigeer.com',
     eyeColor: 'brown',
-    friends: ['Jacklyn Lucas', 'Linda Chapman'],
+    friends: ['Jacklyn Lucas', 'Linda Chapman', 'Adrian Cross', 'Solomon Fokes'],
     isActive: false,
     balance: 1498,
     gender: 'male'
@@ -73,12 +79,13 @@ const getTotalFriendCount = (users) => {
   }
 ]
 Задание
-Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала общее количество друзей (свойство friends) всех пользователей из массива users.
+Дополни функцию getNamesSortedByFriendCount(users) так, чтобы она возвращала массив имён пользователей отсортированный по возрастанию количества их друзей (свойство friends).
 
 Тесты
-Объявлена переменная getTotalFriendCount.
-Переменной getTotalFriendCount присвоена стрелочная функция с параметром (users).
-Для перебора параметра users используется метод reduce().
-Вызов функции с указанным массивом пользователей возвращает число 14
+Объявлена переменная getNamesSortedByFriendCount.
+Переменной getNamesSortedByFriendCount присвоена стрелочная функция с параметром (users).
+В теле функции используется цепочка методов.
+Значение параметра users не изменяется.
+Вызов функции с указанным массивом пользователей возвращает массив ['Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Sheree Anthony', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson'].
 Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
 */
